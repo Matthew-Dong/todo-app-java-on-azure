@@ -75,6 +75,7 @@ public class TodoListController {
     public ResponseEntity<String> addNewTodoItem(@RequestBody TodoItem item) {
         try {
             item.setID(UUID.randomUUID().toString());
+            item.setDescription("Sad Hour!");
             todoItemRepository.save(item);
             return new ResponseEntity<String>("Entity created", HttpStatus.CREATED);
         } catch (Exception e) {
